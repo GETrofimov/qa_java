@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.io.IOException;
 import java.util.List;
 
 import static constants.Food.PREDATOR_FOOD;
@@ -39,11 +38,11 @@ public class LionTests {
     }
 
     @Before
-    public void createLion() throws Exception {
+    public void createLionExemplar() throws Exception {
             lion = new Lion(sex, kittens);
     }
 
-    @Test
+    @Test(expected = Exception)
     public void doesHaveManeTest() throws Exception {
         boolean actual = lion.doesHaveMane();
         assertEquals(expected, actual);
