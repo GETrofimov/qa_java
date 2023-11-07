@@ -6,6 +6,7 @@ public class Lion implements Kittens {
 
     boolean hasMane;
     int kittens;
+    private Animal lion;
 
     public Lion(String sex, int kittens) throws Exception {
         if ("Самец".equals(sex)) {
@@ -16,6 +17,7 @@ public class Lion implements Kittens {
             throw new Exception("Используйте допустимые значения пола животного - самец или самка");
         }
         this.kittens = kittens;
+        this.lion = new Animal();
     }
 
     public boolean doesHaveMane() {
@@ -23,11 +25,11 @@ public class Lion implements Kittens {
     }
 
     public List<String> getFood() throws Exception {
-        return feline.getFood("Хищник");
+        return lion.getFood("Хищник");
     }
 
     @Override
-    public int getKittens(int kittens) {
+    public int getKittens() {
         return kittens;
     }
 }
