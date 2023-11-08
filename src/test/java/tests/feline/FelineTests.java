@@ -28,4 +28,12 @@ public class FelineTests {
         String family = feline.getFamily();
         assertEquals(CATS, family);
     }
+
+    @Test
+    public void setAndGetKittens() {
+        int kittens = 2;
+        feline.setKittens(kittens);
+        int countKittens = feline.getKittens();
+        assertEquals(kittens, countKittens);
+    }
 }

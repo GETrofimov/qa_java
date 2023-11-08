@@ -2,7 +2,9 @@ package tests.lion;
 
 import com.example.Lion;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -14,14 +16,14 @@ import static constants.Sex.MALE;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class LionTests {
+public class LionTestsValidData {
     private String sex;
     private final boolean expected;
-    private int kittens;
+    private final int kittens;
     private Lion lion;
 
 
-    public LionTests(String sex, int kittens, boolean expected) throws Exception {
+    public LionTestsValidData(String sex, int kittens, boolean expected) throws Exception {
         this.sex  = sex;
         this.expected = expected;
         this.kittens = kittens;
@@ -31,27 +33,27 @@ public class LionTests {
     @Parameterized.Parameters
     public static Object[][] getSex() {
         return new Object[][] {
-                {MALE, 3, true},
-                {FEMALE, 0, false},
-                {"Male", 0, false}
+                {MALE, 2, true},
+                {FEMALE, 0, false}
         };
     }
 
     @Before
     public void createLionExemplar() throws Exception {
-            lion = new Lion(sex, kittens);
+            lion = new Lion(sex);
     }
 
-    @Test(expected = Exception)
-    public void doesHaveManeTest() throws Exception {
+    @Test
+    public void doesHaveManeTest() {
         boolean actual = lion.doesHaveMane();
         assertEquals(expected, actual);
     }
 
     @Test
-    public void doesHaveKittens() throws Exception {
-        int actualKittens = lion.getKittens();
-        assertEquals(kittens, actualKittens);
+    public void setAndGetKittens() {
+        lion.setKittens(kittens);
+        int countKittens = lion.getKittens();
+        assertEquals(kittens, countKittens);
     }
 
     @Test
