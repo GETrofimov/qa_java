@@ -23,7 +23,7 @@ public class LionTestsValidData {
     private Lion lion;
 
 
-    public LionTestsValidData(String sex, int kittens, boolean expected) throws Exception {
+    public LionTestsValidData(String sex, int kittens, boolean expected) {
         this.sex  = sex;
         this.expected = expected;
         this.kittens = kittens;
