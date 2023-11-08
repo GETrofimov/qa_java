@@ -8,7 +8,7 @@ import org.junit.rules.ExpectedException;
 import static constants.ExceptionMessags.LION_EXCEPTION_MESSAGE;
 import static constants.Sex.WRONG_GENDER;
 
-public class LionTestsInvalidData {
+public class LionInvalidDataTests {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
     @Test

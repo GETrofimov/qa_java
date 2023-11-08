@@ -14,14 +14,14 @@ import static constants.Sex.MALE;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class LionTestsValidData {
+public class LionValidDataTests {
     private String sex;
     private final boolean expected;
     private final int kittens;
     private Lion lion;
 
 
-    public LionTestsValidData(String sex, int kittens, boolean expected) {
+    public LionValidDataTests(String sex, int kittens, boolean expected) {
         this.sex  = sex;
         this.expected = expected;
         this.kittens = kittens;
